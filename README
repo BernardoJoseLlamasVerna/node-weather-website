@@ -123,3 +123,26 @@ In package.json we set:
 ------> and then we run "npm run start" => it runs our application locally. This command is what Heroku is going to run
 to start up our application on their servers
 
+To upload our changes to Heroku after uploading our changes to GitHub:
+---------------------------------------------------------------------
+- git push heroku master
+
+** In this project, to connect to Heroku we changed:
+- js/app.js:
+Comment this line ---> fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+To ------------------> fetch('/weather?address=' + location).then((response) => {
+
+- In package.json we set:
+ "scripts": {
+     "start": "node src/app.js"
+   },
+
+- in src/app.js
+We set port --> if Heroku port doesnt exist, use 3000 locally:
+const port = process.env.PORT || 3000;
+
+- set "port" in app.listen:
+app.listen(port, () => {
+    //console.log('Server is up on port 3000');
+    console.log('Server is up on port: '+ port);
+});

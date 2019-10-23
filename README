@@ -1,0 +1,61 @@
+This is an example of using Express.
+
+Commands:
+---------
+npm init -y (package.json appears on project)
+npm i express (to install express)
+
+node src/app.js (to run the server)
+
+nodemon src/app.js (start the server and restart when we make changes on our code)
+
+To run nodemon with extensions:
+nodemon src/app.js --e
+
+If node_modules need to be generated again (they're not going to be uploaded to git) we need to run:
+- npm install
+((node_modules are going to be installed using package.json information))
+
+Heroku installation: (Heroku is going to deploy our project on a production environment)
+-------------------
+sudo snap install --classic heroku (in our project folder)
+
+heroku -v (to get to know heroku installed version)
+
+Login on Heroku by terminal
+---------------------------
+- heroku login
+- press enter key
+- internet browser opens and you're now logged if you have an account.
+
+Installing GitHub on our project:
+---------------------------------
+- add-apt-repository ppa:git-core/ppa
+- apt update
+- apt install git
+
+To know git version installed on our project:
+- git --version
+
+Initialize project
+------------------
+- git init
+
+--->output: Inicializado repositorio Git vacío en /home/berni/Documentos/NodeProjects/webServer/.git/
+.git is a folder where is going to be stored all what we change.
+
+- git status (prints the current status of our setup)
+
+To untrack files to git, for example node_modules, we create a new file (.gitignore) and we write files/folders we don't want to upload.
+
+To add all files from a folder to git:
+- git add src/
+
+To upload all files of our project:
+- git add .
+
+
+
+ 
+
+

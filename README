@@ -101,7 +101,25 @@ To check if connection with that SSH key is ok:
 
 ---> "Hi BernardoJoseLlamasVerna! You've successfully authenticated, but GitHub does not provide shell access."
 
+Deploying on Heroku:
+--------------------
+To add a key to our Heroku account
+- heroku keys:add
+-----> Found an SSH public key at /home/berni/.ssh/id_rsa.pub
+       ? Would you like to upload it to Heroku? Yes
+       Uploading /home/berni/.ssh/id_rsa.pub SSH key... done
 
- 
+To create our Heroku project:
+- heroku create bernardo-weather-application
+---> Creating ⬢ bernardo-weather-application... done
+https://bernardo-weather-application.herokuapp.com/ | https://git.heroku.com/bernardo-weather-application.git
 
+=> we get the url to heroku and github repository.
+
+In package.json we set:
+"scripts": {
+    "start": "node src/app.js"
+  },
+------> and then we run "npm run start" => it runs our application locally. This command is what Heroku is going to run
+to start up our application on their servers
 

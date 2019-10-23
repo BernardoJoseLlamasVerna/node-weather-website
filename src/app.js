@@ -13,6 +13,9 @@ console.log(path.join(__dirname, '../public')); --------> // /home/berni/Documen
 
 const app = express();
 
+// set port --> if Heroku port doesnt exist, use 3000 locally
+const port = process.env.PORT || 3000;
+
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');

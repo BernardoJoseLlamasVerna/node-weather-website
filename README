@@ -16,7 +16,7 @@ If node_modules need to be generated again (they're not going to be uploaded to 
 - npm install
 ((node_modules are going to be installed using package.json information))
 
-Heroku installation: (Heroku is going to deploy our project on a production environment)
+Heroku installation: (Heroku is going to deploy our project on a production environment from our GitHub repository)
 -------------------
 sudo snap install --classic heroku (in our project folder)
 
@@ -39,12 +39,12 @@ To know git version installed on our project:
 
 Initialize project
 ------------------
-- git init
+- git init ---> new git repository is created and initialized
 
 --->output: Inicializado repositorio Git vacío en /home/berni/Documentos/NodeProjects/webServer/.git/
 .git is a folder where is going to be stored all what we change.
 
-- git status (prints the current status of our setup)
+- git status (prints the current status of our setup ---> what files have been changed)
 
 To untrack files to git, for example node_modules, we create a new file (.gitignore) and we write files/folders we don't want to upload.
 
@@ -54,6 +54,52 @@ To add all files from a folder to git:
 To upload all files of our project:
 - git add .
 
+To commit all changes:
+- git commit -m "Init commit"
+
+SSH
+---
+- To transfer the code between our machine and the third party services (Heroku and GitHub) in a secure way, we use SSH (Stands for Secure Shell).
+- SSH provides a securely communicating with another machine.
+- SSH uses a key pair (a set of two files).
+
+- ls -a -l ~/.ssh
+---->if you have two files (id_rsa, id_rsa.pub) => That means you do already have a set of SSA keys and you could choose to use those instead of creating
+                                                   new ones.
+
+                                                   There is no need to create new ones if you already have some in place.
+
+---->if you don't have those two files, we can generate them by:
+- ssh-keygen -t rsa -b 4096 -C "bernardojosellamasverna@gmail.com"
+
+** id_rsa is a secret file that is not going to be shared with anyone.
+** id_rsa.pub is going to be shared with GitHub and Heroku.
+
+To start up SSH agent and see if it's already running:
+- eval "$(ssh-agent -s)"
+---> if result: "Agent pid 11285" (for example) => it means that things are already running after running this command.
+
+To see that identity has been added when we try to facilitate a SSH communication:
+- ssh-add -k ~/.ssh/id_rsa
+----> Identity added: /home/berni/.ssh/id_rsa (/home/berni/.ssh/id_rsa).
+
+Pushing Code to GitHub:
+----------------------
+After creating our GitHub repository (node-weather-website):
+- git remote add origin https://github.com/BernardoJoseLlamasVerna/node-weather-website.git
+- git push -u origin master
+
+To get our SSH keys (to store on our GitHub)
+-------------------
+- cat ~/.ssh/id_rsa.pub
+- Then we store on https://github.com/settings/keys --> New SSH Key
+
+To check if connection with that SSH key is ok:
+-----------------------------------------------
+- ssh -T git@github.com
+- Are you sure you want to continue connecting (yes/no)? yes
+
+---> "Hi BernardoJoseLlamasVerna! You've successfully authenticated, but GitHub does not provide shell access."
 
 
  

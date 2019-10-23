@@ -128,8 +128,10 @@ app.get('*', (req, res) => {
 });
 
 // to start the server up: app.listen(port_number, callback function which runs when the server is up and running)
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+//app.listen(3000, () => {
+app.listen(port, () => {
+    //console.log('Server is up on port 3000');
+    console.log('Server is up on port: '+ port);
 });
 
 

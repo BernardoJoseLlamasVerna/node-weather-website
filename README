@@ -149,4 +149,21 @@ app.listen(port, () => {
 
 To run process on local before deploying on prod environment
 ------------------------------------------------------------
-- nodemon src/app.js -e js, hbs
+- nodemon src/app.js -e js, hbs  ---> we can include it on package.json on "script" section
+
+package.json:
+
+...
+"scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e js, hbs"
+  },
+...
+
+====> npm run dev
+
+- to run it properly we have to uninstall nodemon globally:
+(*) npm uninstall -g nodemon
+
+- then we reinstall specifying new "dev" environment:
+(*) npm install nodemon --save-dev

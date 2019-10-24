@@ -146,3 +146,7 @@ app.listen(port, () => {
     //console.log('Server is up on port 3000');
     console.log('Server is up on port: '+ port);
 });
+
+To run process on local before deploying on prod environment
+------------------------------------------------------------
+- nodemon src/app.js -e js, hbs
